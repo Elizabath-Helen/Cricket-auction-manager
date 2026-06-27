@@ -1,0 +1,25 @@
+name: Cricket Auction Manager Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  run-cricket-auction:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+
+      - name: Install Dependencies
+        run: npm install
+
+      - name: Run Cricket Auction Manager
+        run: node app.js
